@@ -14,8 +14,7 @@ const char *mqttServer = "101.33.214.83";
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-void callback(char *topic, byte *payload, unsigned int length)
-{
+void callback(char *topic, byte *payload, unsigned int length) {
     Serial.print("Message arrived [");
     Serial.print(topic);
     Serial.print("] ");
@@ -44,8 +43,7 @@ void reconnect() {
     }
 }
 
-void setup_wifi()
-{
+void setup_wifi() {
     delay(10);
     Serial.println();
     Serial.print("Connecting to ");
@@ -66,15 +64,13 @@ void setup_wifi()
 }
 
 
-void setup()
-{
+void setup() {
     Serial.begin(115200);
     setup_wifi();
     client.setServer(mqttServer, 1883);
 }
 
-void loop()
-{
+void loop() {
     if (!client.connected())
     {
         reconnect();
